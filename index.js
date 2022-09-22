@@ -56,7 +56,7 @@ app.get("/", async (req, res) => {
     range: "Sheet1!A2:B2",
     valueInputOption: "USER_ENTERED",
     resource: {
-      values: [["13", "250M"]],
+      values: [[]],
     },
   });
 
