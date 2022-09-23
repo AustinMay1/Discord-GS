@@ -6,13 +6,13 @@ module.exports = {
     .setName("addmule")
     .setDescription("adds a mule and its balance to the sheet")
     .addStringOption((option) =>
-      option.setName("muleid").setDescription("id of mule")
+      option.setName("mulename").setDescription("name of mule")
     )
     .addStringOption((option) =>
       option.setName("amount").setDescription("amount of gp to add")
     ),
   async execute(interaction, client) {
-    const mule = interaction.options.getString("muleid");
+    const mule = interaction.options.getString("mulename");
     const balance = interaction.options.getString("amount");
 
     const muleId = await mule;
@@ -48,6 +48,7 @@ module.exports = {
           values: [[mule, balance]],
         },
       });
+        return interaction.reply(`${muleId} has been added to the list with a balance of ${balance}`);
     }
   },
 };
