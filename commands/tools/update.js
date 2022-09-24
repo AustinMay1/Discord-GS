@@ -34,14 +34,33 @@ module.exports = {
       range: "Sheet1",
     });
 
-    const data = getRows.data.values.find((row) => row[0] === muleId);
+    const data = getRows.data.values.find(row => row[0] === muleId);
 
+		if (!data) {
+			return interaction.reply("Mule does not exist! Use /addmule")
+		} 
 
+		let toUpdate;
 
+		for (let i = 0; i < getRows.data.values.length; i++) {
+			const row = getRows.data.values[i];
+			if (row[0] === muleId) {
+				toUpdate = i;
+			}
+    }
+    
+    let range = "Sheet1!B" + (toUpdate + 1);
 
+		await googleSheets.spreadsheets.values.update({
+			auth,
+      spreadsheetId,
+      valueInputOption: "USER_ENTERED",
+      range: range,
+			resource: {
+         values: [[balance]]
+			}
+		}).catch(console.error)
 
-
-
-  }
-
-};
+    return interaction.reply(`${muleId} has been updated to reflect a balance of ${balance}`);
+	}
+}

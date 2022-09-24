@@ -37,7 +37,7 @@ module.exports = {
     const data = getRows.data.values.find((row) => row[0] === muleId);
 
     if (data) {
-      return interaction.reply("muleId already exists.");
+      return interaction.reply("a mule with that name already exists. use /updatebal.");
     } else if (!data) {
       await googleSheets.spreadsheets.values.append({
         auth,

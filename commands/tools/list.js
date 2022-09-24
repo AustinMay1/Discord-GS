@@ -35,7 +35,7 @@ module.exports = {
         embed.addFields({ name: `${row[0]}`, value: `${row[1]}` });
       }
     } else {
-      embed.setDescription("No balances added to the list!");
+      embed.setDescription("No balances to display!");
     }
 
     await interaction.reply({ embeds: [embed] });
