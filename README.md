@@ -2,7 +2,7 @@
 
 The name isn't very creative but this is a simple Discord bot that Interfaces with Google Sheets API to store an account name and account balance. Inside of ``index.js`` you will find an express server running, paired with Nodemon this allows for changes to be updated in real time without the need for starting/stopping the bot.
 
-You can create, read, and update cell/row values.
+You can create, read, update and delete cell/row values.
 
 # Files
 
